@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class='text-center'>DETAIL</h1>
+<a href="{% url 'app1:index' %}">홈으로</a>
+<p>{{article.id}}</p>
+<p>{{article.title}}</p>
+<p>{{article.content}}</p>
+<a href="{% url 'app1:update' article.pk %}" class="btn btn-primary">UPDATE</a>
+
+<form action="{% url 'app1:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger">DELETE</button>
+</form>
+{% endblock  %}

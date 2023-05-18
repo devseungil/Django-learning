@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">DETAIL</h1>
+<a href="{% url 'app1:index' %}">게시판으로</a>
+<h2>{{article.pk}}번째 글</h2>
+{% if article.image %}
+{% comment %} <img src="{{article.image.url}}"> {% endcomment %}
+<img src="{{article.image_thumbnail.url}}">
+{% endif %}
+<hr>
+<p>타이틀 : {{article.title}}</p>
+<p>컨텐츠 : {{article.content}}</p>
+<hr>
+<a href="{% url 'app1:update' article.pk %}" class="btn btn-primary">UPDATE</a>
+<form action="{% url 'app1:delete' article.pk %}" method="POST">
+    {% csrf_token %}
+<button class="btn btn-danger">DELETE</button>
+</form>
+{% endblock  %}

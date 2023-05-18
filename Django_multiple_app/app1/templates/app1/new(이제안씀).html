@@ -1,0 +1,17 @@
+{% comment %} {% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">생성</h1>
+
+<form action="{% url 'app1:creat' %}" method='POST'>
+    {% csrf_token %}
+    <input type="text" name='title'>
+    <br>
+    <textarea name="content" id="" cols="30" rows="5"></textarea>
+    <br>
+    {{form.as_p}}
+    <input type="submit">
+</form>
+<hr>
+
+<a href="{% url 'app1:index' %}">[back]</a>
+{% endblock  %} {% endcomment %}

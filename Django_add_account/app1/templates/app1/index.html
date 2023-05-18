@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class = "text-center">게시판</h1>
+<a href="{% url 'app1:create' %}" class="btn btn-primary">CREATE</a>
+{% for article in articles %}
+<p>{{article.pk}}</p>
+<p>{{article.title}}</p>
+<p>{{article.content}}</p>
+<a href="{% url 'app1:detail' article.pk %}">DETAIL</a>
+<hr>
+{% endfor %}
+{% endblock  %}

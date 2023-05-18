@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1 class="text-center">목록</h1>
+
+<a href="{% url 'app1:creat' %}">NEW</a>
+<hr>
+{% for article in articles %}
+    <p>아이디 : {{article.pk}}</p>
+    <p>타이틀 : {{article.title}}</p>
+    <p>컨텐츠 : {{article.content}}</p>
+    <a href="{% url 'app1:detail' article.pk %}">[detail]</a>
+    <hr>
+{% endfor %}
+{% comment %} <a href="{% url 'app2:second' %}">두번째러 슝</a> {% endcomment %}
+{% endblock  %}

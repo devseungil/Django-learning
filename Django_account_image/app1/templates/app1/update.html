@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">UPDATE</h1>
+<a href="{% url 'app1:index' %}">게시판으로</a>
+<form method="POST" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+{% endblock  %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class='text-center'>{{title}}</h1>
+<a href="{% url 'app1:index' %}">홈으로</a>
+<form method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+<input type="submit">
+</form>
+{% endblock  %}

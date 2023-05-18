@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center">UPDATE</h1>
+<form action="{% url 'app1:update' article.pk %}" method='POST'>
+    {% csrf_token %}
+    {% comment %} <input type="text" name='title' value = "{{article.title}}">
+    <br>
+    <textarea name="content" id="" cols="30" rows="5">{{article.content}}</textarea>
+    <br> {% endcomment %}
+    {{form.as_p}}
+    <input type="submit">
+</form>
+<hr>
+
+<a href="{% url 'app1:detail' article.pk %}">[back]</a>
+{% endblock  %}
